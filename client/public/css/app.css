@@ -41,3 +41,15 @@
 .tShadow {
     text-shadow: 2px 2px #ff0000;
 }
+footer{
+    position: absolute;
+    background-color: #000;
+    color: #fff;
+    font-size: 10px;
+    bottom: 0;
+    width: 100%;
+    padding-top: 15px;
+}
+footer p{
+    text-align: center;
+}

@@ -1,29 +1,18 @@
-import { useState } from "react";
 import Login from "./components/Login";
-// import { SocketProvider } from "./contexts/SocketProvider";
-// import {ContactsProvider} from "./contexts/ContactsProvider";
-// import {ConversationsProvider} from './contexts/ConversationsProvider';
-// import useLocalStorage from "./hooks/useLocalStorage";
-// import Dashboard from "./components/Dashboard";
+import { BrowserRouter, Routes,Route } from "react-router-dom";
+import { Dashboard } from "./components/Dashboard";
+import Signup from "./components/Signup";
 
 function App() {
 
-  const [id, setId] = useState('id');
-
-  // const dashboard =  (
-  //   <SocketProvider id={id}>
-  //     <ContactsProvider>
-  //       <ConversationsProvider id={id}>
-  //         <Dashboard id={id} />
-  //       </ConversationsProvider>
-  //     </ContactsProvider>
-  //   </SocketProvider>
-  // );
-
   return (
-    <div className="App">
-      {<Login onIdSubmit={setId} />}
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Login/>} />
+        <Route path="/dashboard" element={<Dashboard/>} />
+        <Route path="/signup" element={<Signup/>} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
