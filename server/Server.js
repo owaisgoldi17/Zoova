@@ -1,4 +1,15 @@
-const socketIO = require('socket.io')(5000);
+
+const express = require("express");
+const http = require("http");
+
+const app = express();
+const httpServer = http.createServer(app);
+const socketIO = require('socket.io')(httpServer, {
+    cors: {
+      origin: "http://localhost:3000",
+      methods: ["GET", "POST"]
+    }
+  });
 
 socketIO.on('connection',socket=>{
     const id = socket.handshake.query.id;
@@ -14,3 +25,4 @@ socketIO.on('connection',socket=>{
         })
     })
 })
+httpServer.listen(5000);
